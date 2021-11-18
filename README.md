@@ -30,6 +30,8 @@ Coding quiz created for aspiring developers to test their coding knowledge
 
 After cloning, open the index.html from your code editor, and take the quiz.
 
+[Developer Quiz Deployement](https://coderjake91.github.io/developer-code-quiz/)
+
 ## Credits
 
 *[@coding-boot-camp](https://github.com/coding-boot-camp)
