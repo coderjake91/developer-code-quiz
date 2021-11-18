@@ -17,16 +17,26 @@
             </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">Developer Coding Quiz</h5>
-                <p class="card-text" id="question">Welcome! Test your fullstack developer knowledge, and gain confidence in technical interviews. You will have 25 seconds to complete 5 challenge questions across a number of fundamental developer concepts. Each correct answer is worth 20 points, and each incorrect answer deducts 5 seconds from the quiz time. Good luck!!!</p>
+                <h5 class="card-title">Question Number</h5>
+                <p class="card-text" id="question">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <p class="card-text"><small class="text-muted" id="response"></small></p>
                 <p id="timer"></p>
             </div>
         </div>
     </div>
+    <button type="button" onclick="quiz.quizCountDown()" class="btn btn-outline-primary">Timer Test</button>
+    <div class="btn-group-vertical" role="group" aria-label="Basic outlined example" id="quiz-buttons">
+        <button type="button" class="btn btn-outline-primary" id="c1">Question 1</button>
+        <button type="button" class="btn btn-outline-primary"id="c2">Question 2</button>
+        <button type="button" class="btn btn-outline-primary" id="c3">Question 3</button>
+        <button type="button" class="btn btn-outline-primary"id="c4">Question 4</button>
+    </div>
+        <p>Photo by <a href="https://unsplash.com/@walkator?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Walkator</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    </div>
+    <button type="button" onclick="window.location.href='./high-scores.html'" class="btn btn-outline-primary">See High Scores!</button>
 
-    <button type="button" onclick="window.location.href='./start.html'" class="btn btn-outline-primary">Start Quiz!</button>
 
+<script src="./assets/js/code-quiz.js"></script>
 </body>
 <!--Bootstrap plugins-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

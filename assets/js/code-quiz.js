@@ -24,26 +24,11 @@ Score page logic:
 ->user presented with score page at the conclusion of quiz session
 */
 /*----------------------------------------------------------------------------------------*/
-// let quizTime = 60;
-// let t;
-// const quizCountDown = () => {
-    
-//     document.getElementById('timer').innerHTML = quizTime;
-//     console.log(quizTime);
-
-//     quizTime = quizTime - 1;
-//     t = setTimeout(quizCountDown, 1000);
-
-//     if(quizTime < 0){
-//         clearTimeout(t);
-//     }
-
-// }
 
 class Quiz {
     constructor() {
         this.quizState = {
-            timeLimit: 20,
+            timeLimit: 25,
             t: 0,
             end: false,
             currentProblem: 0
@@ -144,29 +129,25 @@ class Quiz {
             quiz.quizState.timeLimit -= 5;
             quiz.elements.response.innerHTML = 'Incorrect!'
         }
+        console.log(quiz.quizState.currentProblem);
+        quiz.quizState.currentProblem++
 
-        setTimeout(()=> {quiz.presentProblem()}, 1000);
+        setTimeout(()=> {quiz.presentProblem()}, 800);
     }
     presentProblem() {
         console.log(`problem ${this.quizState.currentProblem + 1} presented`)
-        //present first question
-        //while quiz time is not zero and there are still more questions...
-            //on click
-            //if correct add points, next question
-            //if incorrect substract 10 seconds, next questions
-        //exit quiz and present initals submission page
 
         this.elements.question.innerHTML = this.problems[this.quizState.currentProblem].question;
         this.elements.c1.innerHTML = this.problems[this.quizState.currentProblem].choices.c1;
         this.elements.c2.innerHTML = this.problems[this.quizState.currentProblem].choices.c2;
         this.elements.c3.innerHTML = this.problems[this.quizState.currentProblem].choices.c3;
         this.elements.c4.innerHTML = this.problems[this.quizState.currentProblem].choices.c4;
-        console.log(this.quizState.currentProblem);
-        this.quizState.currentProblem++
     }
 }
 
 
 const quiz = new Quiz;
+
+quiz.presentProblem();
 
 quiz.elements.container.addEventListener('click', quiz.quizButtonHandler);
