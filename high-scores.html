@@ -10,9 +10,12 @@
 </head>
 <body style="background: url(./assets/images/walkator-klMii3cR9iI-unsplash.jpg) no-repeat">
     <div>
-        <!--<img style="position: absolute; left: 0px; right: 0px; height: 100; width: 100; z-index: -1;" src="./assets/images/walkator-klMii3cR9iI-unsplash.jpg" alt="image dislaying lines of code">-->
         <h1 style="color: whitesmoke; font-weight: 900;">Current Top Developers</h1>
-        <ol class="list-group list-group-numbered">
+        <ol class="list-group list-group-numbered" id="score-list"></ol>
+        </ol>
+        <!--
+        <h1 style="color: whitesmoke; font-weight: 900;">Current Top Developers</h1>
+        <ol class="list-group list-group-numbered" id="score-list">
             <li class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
                 <span class="badge bg-primary rounded-pill">1st</span>
@@ -37,16 +40,16 @@
             </li>
           </ol>
     </div>
+        -->
 
-
-
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Dev Initials" aria-label="Recipient's Initials" aria-describedby="button-addon2">
-        <button class="btn btn-primary" type="button" id="button-addon2">Submit Your High Score!</button>
-    </div>
+    <form id="score-form" class="input-group mb-3">
+        <input id="score-field" type="text" class="form-control" placeholder="Dev Initials" aria-label="Recipient's Initials" aria-describedby="button-addon2">
+        <button class="btn btn-primary" type="submit" id="button-addon2">Submit Your High Score!</button>
+    </form>
 
     <button type="button" onclick="window.location.href='./index.html'" class="btn btn-primary">Restart Quiz</button>
 
+<script src="./assets/js/high-scores.js"></script>
 </body>
 <!--Bootstrap plugins-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

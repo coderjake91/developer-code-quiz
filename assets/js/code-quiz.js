@@ -30,8 +30,8 @@ class Quiz {
         this.quizState = {
             timeLimit: 25,
             t: 0,
-            end: false,
-            currentProblem: 0
+            currentProblem: 0,
+            userScore: 0
         }
         this.elements = {
             container: document.getElementById('quiz-buttons'),
@@ -42,10 +42,6 @@ class Quiz {
             c2: document.getElementById('c2'),
             c3: document.getElementById('c3'),
             c4: document.getElementById('c4')
-        }
-        this.user = {
-            score: 0,
-            initials: ''
         }
         //5 total quiz problems
         this.problems = [
@@ -112,8 +108,8 @@ class Quiz {
         
         if(this.quizState.timeLimit < 0){
             clearTimeout(this.quizState.t);
-            this.quizState.end = true;
-            window.alert(`The Coder Quiz Has Ended!!! Your Score is ${this.user.score}`)
+            localStorage.setItem("currentUserScore", this.quizState.userScore);
+            window.alert(`The Coder Quiz Has Ended!!! Your Score is ${this.quizState.userScore}`)
         }
     
     }
@@ -123,7 +119,7 @@ class Quiz {
         console.log(event.target.id);
 
         if(event.target.id === quiz.problems[quiz.quizState.currentProblem].answer){
-            quiz.user.score += 20;
+            quiz.quizState.userScore += 20;
             quiz.elements.response.innerHTML = 'Correct!'
         } else {
             quiz.quizState.timeLimit -= 5;
@@ -147,6 +143,8 @@ class Quiz {
 
 
 const quiz = new Quiz;
+
+window.onload = quiz.quizCountDown();
 
 quiz.presentProblem();
 
