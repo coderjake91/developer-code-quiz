@@ -18,17 +18,18 @@
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">Question Number</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Submission Response</small></p>
+                <p class="card-text" id="question">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted" id="response">Submission Response</small></p>
                 <p id="timer"></p>
             </div>
         </div>
     </div>
-    <div class="btn-group-vertical" role="group" aria-label="Basic outlined example">
-        <button type="button" onclick="quizCountDown()" class="btn btn-outline-primary">Timer Test</button>
-        <button type="button" class="btn btn-outline-primary">2) Question 2</button>
-        <button type="button" class="btn btn-outline-primary">3) Question 3</button>
-        <button type="button" class="btn btn-outline-primary">4) Question 4</button>
+    <button type="button" onclick="quiz.quizCountDown()" class="btn btn-outline-primary">Timer Test</button>
+    <div class="btn-group-vertical" role="group" aria-label="Basic outlined example" id="quiz-buttons">
+        <button type="button" class="btn btn-outline-primary" id="c1">Question 1</button>
+        <button type="button" class="btn btn-outline-primary"id="c2">Question 2</button>
+        <button type="button" class="btn btn-outline-primary" id="c3">Question 3</button>
+        <button type="button" class="btn btn-outline-primary"id="c4">Question 4</button>
     </div>
         <p>Photo by <a href="https://unsplash.com/@walkator?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Walkator</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
     </div>
