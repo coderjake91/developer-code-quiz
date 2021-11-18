@@ -100,16 +100,17 @@ class Quiz {
     quizCountDown(){
 
     console.log(this.quizState.timeLimit);
-        this.elements.timer.innerHTML = this.quizState.timeLimit;
+        this.elements.timer.innerHTML = `Quiz Time Left: ${this.quizState.timeLimit}`;
     
     
         this.quizState.timeLimit -= 1;
         this.quizState.t = setTimeout(() => {this.quizCountDown()}, 1000);
         
-        if(this.quizState.timeLimit < 0){
+        if(this.quizState.timeLimit < 0 || this.quizState.currentProblem > 4){
             clearTimeout(this.quizState.t);
             localStorage.setItem("currentUserScore", this.quizState.userScore);
             window.alert(`The Coder Quiz Has Ended!!! Your Score is ${this.quizState.userScore}`)
+            window.location = './high-scores.html'
         }
     
     }
@@ -132,12 +133,14 @@ class Quiz {
     }
     presentProblem() {
         console.log(`problem ${this.quizState.currentProblem + 1} presented`)
+        if(this.quizState.currentProblem < 5){
+            this.elements.question.innerHTML = this.problems[this.quizState.currentProblem].question;
+            this.elements.c1.innerHTML = this.problems[this.quizState.currentProblem].choices.c1;
+            this.elements.c2.innerHTML = this.problems[this.quizState.currentProblem].choices.c2;
+            this.elements.c3.innerHTML = this.problems[this.quizState.currentProblem].choices.c3;
+            this.elements.c4.innerHTML = this.problems[this.quizState.currentProblem].choices.c4;
+        }
 
-        this.elements.question.innerHTML = this.problems[this.quizState.currentProblem].question;
-        this.elements.c1.innerHTML = this.problems[this.quizState.currentProblem].choices.c1;
-        this.elements.c2.innerHTML = this.problems[this.quizState.currentProblem].choices.c2;
-        this.elements.c3.innerHTML = this.problems[this.quizState.currentProblem].choices.c3;
-        this.elements.c4.innerHTML = this.problems[this.quizState.currentProblem].choices.c4;
     }
 }
 

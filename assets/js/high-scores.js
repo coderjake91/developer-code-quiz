@@ -9,14 +9,50 @@ function highScores(){
     } else {
         const scoreList = JSON.parse(localStorage.getItem("scoreList"));
 
-        scoreList.forEach(highScore => {
-            scores.innerHTML =   `<li class="list-group-item d-flex justify-content-between align-items-start">
-                                    <div class="ms-2 me-auto">
-                                        <span class="badge bg-primary rounded-pill">Place Here</span>
-                                        <div class="fw-bold">${highScore.initials}</div>
-                                        Score: ${highScore.score}
-                                    </div>
-                                </li>`
+        const sortedList = scoreList.sort((a,b) => {return b.score - a.score});
+
+        console.log(sortedList);
+
+        sortedList.forEach((highScore, index) => {
+            const scoreEl = document.createElement("li");
+            scoreEl.className = "list-group-item d-flex justify-content-between align-items-start";
+            switch(index.toString()){
+                case '0':
+                    scoreEl.className = "list-group-item d-flex justify-content-between align-items-start";
+                    scoreEl.innerHTML =   `<div class="ms-2 me-auto">
+                                                <span class="badge bg-primary rounded-pill">1st Place</span>
+                                                <div class="fw-bold">${highScore.initials}</div>
+                                                Score: ${highScore.score}
+                                                <br>Attempted: ${highScore.submitTime}
+                                            </div>`
+                    scores.appendChild(scoreEl);
+                break;
+                case '1':
+                    scoreEl.innerHTML =   `<div class="ms-2 me-auto">
+                                                <span class="badge bg-primary rounded-pill">2nd Place</span>
+                                                <div class="fw-bold">${highScore.initials}</div>
+                                                Score: ${highScore.score}
+                                                <br>Attempted: ${highScore.submitTime}
+                                            </div>`
+                    scores.appendChild(scoreEl);
+                break;
+                case '2':
+                    scoreEl.innerHTML =   `<div class="ms-2 me-auto">
+                                                <span class="badge bg-primary rounded-pill">3rd Place</span>
+                                                <div class="fw-bold">${highScore.initials}</div>
+                                                Score: ${highScore.score}
+                                                <br>Attempted: ${highScore.submitTime}
+                                            </div>`
+                    scores.appendChild(scoreEl);
+                break;
+                default:
+                    scoreEl.innerHTML =   `<div class="ms-2 me-auto">
+                                                <div class="fw-bold">${highScore.initials}</div>
+                                                Score: ${highScore.score}
+                                                <br>Attempted: ${highScore.submitTime}
+                                            </div>`
+                    scores.appendChild(scoreEl);
+            }
         });
     }
 }
@@ -38,12 +74,15 @@ function submitScore(event){
 
     const user = {
         initials: userInitials,
-        score: userCurrentScore
+        score: userCurrentScore,
+        submitTime: new Intl.DateTimeFormat('en-GB', {dateStyle: 'short', timeStyle: 'short'}).format(Date.now())
     }
 
     console.log(user);
     scoreList.push(user);
     localStorage.setItem("scoreList", JSON.stringify(scoreList));
+    scores.innerHTML = '';
+    highScores();
 }
 
 window.onload = highScores();
